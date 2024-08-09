@@ -24,7 +24,7 @@ document.querySelectorAll('.swipable').forEach(item => {
     document.addEventListener('mousemove', event => {
         if(mouseDownSwipable){
             item.style.left = event.clientX - clickLocation +"px"
-            item.style.transform = `translate(-50%, -50%) rotate(${20 * mouseSpeed + (startX - event.clientX)/25}deg)`
+            item.style.transform = `translate(-50%, -50%) rotate(${Math.min(15 * mouseSpeed, 100) * (event.clientX - lastMouseX < 0 ? -1 : 1) + (startX - event.clientX)/50}deg)`
         }
 
         if (lastMouseX !== null && lastMouseY !== null && lastTime !== null) {
@@ -35,7 +35,7 @@ document.querySelectorAll('.swipable').forEach(item => {
             let timeDelta = Date.now() - lastTime;
     
             // Speed in pixels per millisecond
-            mouseSpeed =(distance / timeDelta) * (deltaX < 0 ? -1 : 1);
+            mouseSpeed =(distance / timeDelta);
         }
     
         lastMouseX = event.clientX;
