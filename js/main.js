@@ -1,25 +1,24 @@
 let clickLocation = 0
-let rotationDeg = 0
+let startX
 let mouseDownSwipable = false
-const center = 750
 
 document.querySelectorAll('.swipable').forEach(item => {
-    const style = window.getComputedStyle(item)
-    item.style.left = style.left
     item.addEventListener('mousedown', event => {
-        clickLocation = event.clientX - parseInt(item.style.left)
+        startX = parseInt(item.offsetLeft)
+        item.setCapture();
+        clickLocation = event.clientX - startX
         mouseDownSwipable = true
     })
     item.addEventListener('mouseup', () => {
+        document.releaseCapture();
         mouseDownSwipable = false
-        item.style.left = center+"px"
-        item.style.transform = `rotate(${0}deg)`
+        item.style.left = 50+"%"
+        item.style.transform = `rotate(${0}deg) translate(-50%, -50%)`
     })
     document.addEventListener('mousemove', event => {
         if(mouseDownSwipable){
             item.style.left = event.clientX - clickLocation +"px"
-            // rotationDeg = center - event.clientX
-            item.style.transform = `rotate(${(center - event.clientX)/25}deg)`
+            item.style.transform = `translate(-50%, -50%) rotate(${(startX - event.clientX)/25}deg)`
         }
     })
 })
