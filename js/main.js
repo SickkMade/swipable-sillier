@@ -34,7 +34,7 @@ document.querySelectorAll('.swipable').forEach(item => {
             let distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
             let timeDelta = Date.now() - lastTime;
     
-            // Speed in pixels per millisecond
+            // mouse speed per milisecond :D
             mouseSpeed =(distance / timeDelta);
         }
     
