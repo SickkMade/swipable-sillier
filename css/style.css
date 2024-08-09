@@ -75,4 +75,11 @@ footer {
      transform:translate(-50%, -50%);
      transition: all ease-out .1s;
      touch-action: none;
+     text-align: center;
+}
+.swipable > h1{
+     margin-top:50%;
+     color:red;
+     pointer-events: none;
+     user-select:none;
 }
