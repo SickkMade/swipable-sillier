@@ -18,13 +18,15 @@ document.querySelectorAll('.swipable').forEach(item => {
     document.addEventListener('mouseup', () => {
         mouseDownSwipable = false
         item.style.left = 50+"%"
-        item.style.boxShadow = `0px 2px 20px black`
+        item.children[0].style.textShadow = `0px 2px 2px rgba(0, 0, 0, 0.5)`
+        item.style.boxShadow = `0px 2px 20px rgba(0, 0, 0, 0.5)`
         item.style.transform = `rotate(${0}deg) translate(-50%, -50%)`
     })
     document.addEventListener('mousemove', event => {
         if(mouseDownSwipable){
             item.style.left = event.clientX - clickLocation +"px"
-            item.style.boxShadow = `${(item.offsetLeft-startX)/100}px 2px 20px black`
+            item.style.boxShadow = `${(item.offsetLeft-startX)/75}px 2px 20px rgba(0, 0, 0, 0.5)`
+            item.children[0].style.textShadow = `${(item.offsetLeft-startX)/250}px 2px 2px rgba(0, 0, 0, 0.5)`
             item.style.transform = `scale(110%) translate(-50%, -45%) rotate(${ (startX - event.clientX)/-100}deg) skew(${ (startX - event.clientX)/-100}deg, ${(startX - event.clientX)/-100}deg)`
         
 
