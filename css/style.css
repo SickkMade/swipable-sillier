@@ -82,4 +82,5 @@ footer {
      color:red;
      pointer-events: none;
      user-select:none;
+     -webkit-user-select: none;
 }
