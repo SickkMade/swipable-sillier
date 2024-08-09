@@ -11,12 +11,12 @@ let mouseSpeed = 0;
 document.querySelectorAll('.swipable').forEach(item => {
     item.addEventListener('mousedown', event => {
         startX = parseInt(item.offsetLeft)
-        item.setPointerCapture(event.pointerId);
+        // item.setPointerCapture(event.pointerId);
         clickLocation = event.clientX - startX
         mouseDownSwipable = true
     })
     item.addEventListener('mouseup', event => {
-        item.releasePointerCapture(event.pointerId);
+        // item.releasePointerCapture(event.pointerId);
         mouseDownSwipable = false
         item.style.left = 50+"%"
         item.style.transform = `rotate(${0}deg) translate(-50%, -50%)`

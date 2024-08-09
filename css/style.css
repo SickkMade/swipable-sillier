@@ -74,4 +74,5 @@ footer {
      left:50%;
      transform:translate(-50%, -50%);
      transition: all ease-out .1s;
+     touch-action: none;
 }
