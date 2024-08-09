@@ -28,7 +28,7 @@ document.querySelectorAll('.swipable').forEach(item => {
                 item.style.left = event.clientX - clickLocation +"px"
                 item.style.boxShadow = `${(item.offsetLeft-startX)/75}px 2px 20px rgba(0, 0, 0, 0.5)`
                 item.children[0].style.textShadow = `${(item.offsetLeft-startX)/250}px 2px 2px rgba(0, 0, 0, 0.5)`
-                item.style.transform = `scale(110%) translate(-50%, ${-45 + (Math.abs(startX - event.clientX)/25)}%) rotate(${ (startX - event.clientX)/-75}deg) skew(${ (startX - event.clientX)/-100}deg, ${(startX - event.clientX)/-100}deg)`
+                item.style.transform = `scale(110%) translate(-50%, ${-45 + (Math.abs(startX - event.clientX)/25)}%) rotate(${Math.min(mouseSpeed, 100) * (event.clientX - lastMouseX < 0 ? -1 : 1) + (startX - event.clientX)/-75}deg) skew(${ (startX - event.clientX)/-75}deg, ${(startX - event.clientX)/-75}deg)`
             
     
                 if (lastMouseX !== null && lastMouseY !== null && lastTime !== null) {
